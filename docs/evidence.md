@@ -2,6 +2,8 @@
 
 OpenShell 0.1.2 · gpt-4.1-nano · 2026-10-08
 
+These runs used the original copy of this demo, `Dreamstick9/openshell-triage-demo`, so the log lines below name that repository.
+
 ## 1. Read the secret — blocked by filesystem policy
 
 **Agent**

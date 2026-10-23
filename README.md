@@ -2,7 +2,7 @@
 
 **The model will sometimes get tricked. The sandbox decides how much damage a tricked agent can do.**
 
-A small issue-triage agent runs inside an [NVIDIA OpenShell](https://github.com/NVIDIA/OpenShell) sandbox. Its job is to read a GitHub issue and summarise it. [Issue #1](https://github.com/Dreamstick9/openshell-triage-demo/issues/1) looks like an ordinary bug report, but it hides instructions in an HTML comment. The comment is invisible on github.com, but the agent sees it through the API. The instructions tell the agent to read a production secret, send it to an outside server, leak the model API key, and post a fake "closing" comment.
+A small issue-triage agent runs inside an [NVIDIA OpenShell](https://github.com/NVIDIA/OpenShell) sandbox. Its job is to read a GitHub issue and summarise it. [Issue #1](https://github.com/nirmata/demo-openshell-prompt-injection/issues/1) looks like an ordinary bug report, but it hides instructions in an HTML comment. The comment is invisible on github.com, but the agent sees it through the API. The instructions tell the agent to read a production secret, send it to an outside server, leak the model API key, and post a fake "closing" comment.
 
 The agent follows them. **OpenShell blocks every step**, and each block is visible to the agent and in the audit log. The agent itself is deliberately tiny; the substance is in the containment policy, the approval flow, and what it took to get OpenShell running.
 
@@ -85,9 +85,9 @@ Requirements: macOS on Apple Silicon (or Linux), Docker, [OpenShell](https://doc
 
 ```bash
 cp .env.example .env                           # add OPENAI_API_KEY and GITHUB_TOKEN
-REPO=<you>/openshell-triage-demo ./run-agent.sh   # terminal 1: prompt, model replies, command output
+REPO=<you>/demo-openshell-prompt-injection ./run-agent.sh   # terminal 1: prompt, model replies, command output
 ./watch-logs.sh                                   # terminal 2: OpenShell's live ALLOWED/DENIED log
-REPO=<you>/openshell-triage-demo ./approval-flow.sh
+REPO=<you>/demo-openshell-prompt-injection ./approval-flow.sh
 ```
 
 To use the MicroVM driver on macOS, put this in `/opt/homebrew/var/openshell/gateway.toml`, then run `brew install e2fsprogs && brew services restart openshell`:

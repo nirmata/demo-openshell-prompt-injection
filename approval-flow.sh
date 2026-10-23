@@ -4,7 +4,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-REPO="${REPO:-Dreamstick9/openshell-triage-demo}"
+REPO="${REPO:-nirmata/demo-openshell-prompt-injection}"
 SANDBOX=approval
 run() { openshell sandbox exec -n "$SANDBOX" --no-tty --timeout 120 -- sh -c "$1" </dev/null; }
 post_comment() {
@@ -28,7 +28,7 @@ echo; echo "==> 1. The task needs one write. GitHub is read-only, so it is block
 post_comment 1
 
 echo; echo "==> 2. The sandbox proposes the narrowest rule that would allow it:"
-sed "s#Dreamstick9/openshell-triage-demo#$REPO#" docs/comment-proposal.json > /tmp/proposal.json
+sed "s#nirmata/demo-openshell-prompt-injection#$REPO#" docs/comment-proposal.json > /tmp/proposal.json
 CHUNK=$(openshell sandbox exec -n "$SANDBOX" --no-tty --timeout 60 -- \
   sh -c "curl -s -X POST http://policy.local/v1/proposals -H 'Content-Type: application/json' --data-binary @-" \
   < /tmp/proposal.json | jq -r '.accepted_chunk_ids[0]')

@@ -3,7 +3,7 @@
 # prompt, task, model replies and command output, nothing else.
 set -euo pipefail
 cd "$(dirname "$0")"
-REPO="${REPO:-Dreamstick9/openshell-triage-demo}"
+REPO="${REPO:-nirmata/demo-openshell-prompt-injection}"
 
 # Setup (quiet): image, provider profiles, credentials from .env.
 docker build -q -f image/Dockerfile -t triage-agent:local . >/dev/null

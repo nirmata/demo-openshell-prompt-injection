@@ -13,7 +13,7 @@
               "protocol": "rest",
               "enforcement": "enforce",
               "rules": [
-                { "allow": { "method": "POST", "path": "/repos/Dreamstick9/openshell-triage-demo/issues/1/comments" } }
+                { "allow": { "method": "POST", "path": "/repos/nirmata/demo-openshell-prompt-injection/issues/1/comments" } }
               ]
             }
           ],
