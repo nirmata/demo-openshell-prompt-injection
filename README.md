@@ -111,5 +111,3 @@ compute_driver = "vm"
 | `run-agent.sh` / `watch-logs.sh` | The attack demo: run the agent in a sandbox (raw prompt, model replies, output) and stream OpenShell's security log. |
 | `approval-flow.sh` | The least-privilege approval demo. |
 | `docs/` | The poisoned issue text, the comment proposal, and the side-by-side evidence. |
-
-Built with [Claude Code](https://claude.com/claude-code) as a pair programmer.
